@@ -1,0 +1,60 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "lineargap", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "admin",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "admin stoper",
+	Callback = function()
+	  local args = {
+    [1] = ":mute others "
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient"):WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+	  
+	  
+	  local args = {
+    [1] = ":unbchat others"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient"):WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+local args = {
+    [1] = ":uncmdbar others"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient"):WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+local args = {
+    [1] = ":uncmdbar2 others"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient"):WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+
+
+  	end    
+})
+
+Tab:AddToggle({
+	Name = "lock server",
+	Default = false,
+	Callback = function(Value)
+	  wait(2)
+	  print("h")
+		local args = {
+    [1] = ":kick nonadmins server locked"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("HDAdminClient"):WaitForChild("Signals"):WaitForChild("RequestCommand"):InvokeServer(unpack(args))
+
+	end    
+})
+
+
+
+
+
+
+OrionLib:Init()
